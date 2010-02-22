@@ -22,6 +22,14 @@
 
 /** \brief Show versions
  *
+ *  Different version of a service should be in sub-directories like
+ *     .../myWebService/
+ *     .../myWebService/1.0/
+ *     .../myWebService/1.2/
+ *     .../myWebService/1.3/
+ *
+ *  Only sub-directories with a NEWS.html file is exposed
+ *
  *  Fill info.html with the text you will expose and put a %s where the version info should be
  * 
  *  Fill line.html with _DIR_ where the version/directory should go and _DATE_ if you 
