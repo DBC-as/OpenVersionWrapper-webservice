@@ -38,3 +38,7 @@ Use Doxygen to get code documentation
 
 Installation
 ------------
+
+copy versionWrapper.php or versions.php to index.php or make a symbolic link
+
+For version you can correct info.html and line.html to suit you need/ambition

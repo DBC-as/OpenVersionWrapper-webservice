@@ -28,10 +28,15 @@
  *  Version can be set in the request (rest, xml or soap) by setting version
  *  (&version= ... or <version>...</version>)
  * 
- *  The default version is "current".
- *
- *  So if the current version is 1.2 make a symbolic link like
+ *  Different version of a service should be in sub-directories like
+ *     .../myWebService/
+ *     .../myWebService/1.0/
+ *     .../myWebService/1.2/
+ *     .../myWebService/1.3/
+ *  and the current version should be in current. So if the current version 
+ *  is 1.2 make a symbolic link like
  *     ln -s 1.2 current
+ *
  * 
  */
 
