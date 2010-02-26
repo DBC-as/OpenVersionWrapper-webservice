@@ -1,9 +1,19 @@
-<p><strong>OpenVersionWrapper</strong> is available in the following versions:</p>
+<html>
+<head>
+<title>MyOpenService</title>
+<style>
+  td {padding-right: 1em;}
+</style>
+</head>
+<body>
+<p><strong>MyOpenService</strong> is available in the following versions:</p>
 
-<table style="margin-left: 2em">
+<table style="margin-left: 2em;">
 %s
 </table>
 
 <p>
-Further information can be found at: <a href="http://oss.dbc.dk/plone/search?SearchableText=openversionwrapper">oss.dbc.dk</a>
+Further information can be found at: <a href="http://oss.dbc.dk/plone/search?SearchableText=MyOpenService">oss.dbc.dk</a>
 </p>
+</body>
+</html>
