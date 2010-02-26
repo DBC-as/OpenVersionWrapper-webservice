@@ -29,7 +29,7 @@
  *     .../myWebService/1.3/
  *
  *  Only sub-directories with a NEWS.html file is exposed. Directories are
- *  sorted chronologically reverse order
+ *  sorted chronologically reverse order of the NEWS.html mdate
  *
  *  Fill info.html with the text you will expose and put a %s where the version info should be
  * 
@@ -54,12 +54,12 @@
   if ($dp = opendir('.'))
     while ($file = readdir($dp))
       if (is_dir($file) && $file[0] <> '.' && is_file($file.'/NEWS.html')) 
-        $dirs[-filemtime($file)] = $file;
+        $dirs[-filemtime($file.'/NEWS.html')] = $file;
 
   // sort according to timestamp
   ksort($dirs, SORT_NUMERIC);
 
   foreach ($dirs as $sort => $dir)
-    $vers .= str_replace("_DATE_", date("F j Y", filemtime($dir.'/NEWS.html')), str_replace("_DIR_", $dir, $line));
+    $vers .= str_replace("_DATE_", date("F j Y", -$sort), str_replace("_DIR_", $dir, $line));
   printf($info, $vers);
 ?>
