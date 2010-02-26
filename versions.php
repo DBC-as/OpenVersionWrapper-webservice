@@ -53,7 +53,7 @@
   if ($dp = opendir('.'))
     while ($file = readdir($dp))
       if (is_dir($file) && $file[0] <> '.' && is_file($file.'/NEWS.html')) 
-        $dirs[filemtime($file)] = $file;
+        $dirs[-filemtime($file)] = $file;
         //$vers .= str_replace("_DATE_", date("F j Y", filemtime($file.'/NEWS.html')), str_replace("_DIR_", $file, $line));
 
   // sort according to timestamp
