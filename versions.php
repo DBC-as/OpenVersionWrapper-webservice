@@ -2,7 +2,7 @@
 /**
  *
  * This file is part of Open Library System.
- * Copyright © 2009, Dansk Bibliotekscenter a/s,
+ * Copyright © 2010, Dansk Bibliotekscenter a/s,
  * Tempovej 7-11, DK-2750 Ballerup, Denmark. CVR: 15149043
  *
  * Open Library System is free software: you can redistribute it and/or modify
@@ -38,6 +38,7 @@
  *
  */
 
+  $ignore = array("service" => TRUE);
 
   if ($fp = fopen("info.html", "r")) {
     $info = fread($fp, filesize("info.html"));
@@ -53,13 +54,13 @@
 
   if ($dp = opendir('.'))
     while ($file = readdir($dp))
-      if (is_dir($file) && $file[0] <> '.' && is_file($file.'/NEWS.html')) 
-        $dirs[-filemtime($file.'/NEWS.html')] = $file;
+      if (is_dir($file) && empty($ignore[$file]) && $file[0] <> '.' && is_file($file.'/NEWS.html'))
+        $dirs[$file] = filemtime($file.'/NEWS.html');
 
   // sort according to timestamp
-  ksort($dirs, SORT_NUMERIC);
+  arsort($dirs, SORT_NUMERIC);
 
-  foreach ($dirs as $sort => $dir)
+  foreach ($dirs as $dir => $sort)
     $vers .= str_replace("_DATE_", date("F j Y", -$sort), str_replace("_DIR_", $dir, $line));
   printf($info, $vers);
 ?>
