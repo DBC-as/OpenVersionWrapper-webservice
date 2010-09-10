@@ -61,6 +61,6 @@
   arsort($dirs, SORT_NUMERIC);
 
   foreach ($dirs as $dir => $sort)
-    $vers .= str_replace("_DATE_", date("F j Y", -$sort), str_replace("_DIR_", $dir, $line));
+    $vers .= str_replace("_DATE_", date("F j Y", $sort), str_replace("_DIR_", $dir, $line));
   printf($info, $vers);
 ?>
